@@ -131,8 +131,8 @@
                         let rate1 = this.imgList[i].height / this.imgList[i].width,
                             rate2 = this.imgList[i + 1].height / this.imgList[i + 1].width,
                             totalRate = rate1 + rate2,
-                            width1 = rate2 / totalRate * this.maxWidth,
-                            width2 = rate1 / totalRate * this.maxWidth,
+                            width1 = rate2 / totalRate * (this.maxWidth-1),
+                            width2 = rate1 / totalRate * (this.maxWidth-1),
                             height = width1 * rate1;
                         var group = document.createElement('div');
                         group.style.fontSize = 0;
@@ -140,10 +140,13 @@
                         img1.src = this.imgList[i].src;
                         img1.style.width = width1 + 'px';
                         img1.style.height = height + 'px';
+                        img1.style.marginBottom = '1px';
                         var img2 = new Image();
                         img2.src = this.imgList[i + 1].src;
                         img2.style.width = width2 + 'px';
                         img2.style.height = height + 'px';
+                         img2.style.float = 'right';
+                        img2.style.marginBottom = '1px';
                         group.appendChild(img1);
                         group.appendChild(img2);
                         outer.appendChild(group);
@@ -153,6 +156,7 @@
                 this.dom.appendChild(outer)
             }
         };
+        
         return waterfall
     })();
 
@@ -162,6 +166,9 @@
      * @param options<Object> 组件选项 showNum<NUmber>:显示数目(默认4) showAll<Boolean>:显示全面(默认false)  maxWidth<Number>:图片显示的最大宽度(默认为屏幕宽度)  maxHeight<Number>:图片显示的最大高度(默认为屏幕高度)
      * @param fn<Function>  查看更多回调(与showNum、showAll配合使用)
      * */
+     var showAll = false;
     var waterfall = new imgWaterfall();
-    waterfall.init('', ImgList, {});
+    waterfall.init('', ImgList, {},function() {
+         waterfall.init('', ImgList, {showAll: true});
+    });
 </script>
