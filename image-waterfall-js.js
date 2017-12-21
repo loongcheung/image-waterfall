@@ -55,7 +55,6 @@
             this.showNum = 4;
             this.showAll = false;
             this.maxWidth = window.screen.width;
-            this.maxHeight = window.screen.height;
             this.fn = function () {
                 console.warn('可以传入回调函数')
             }
@@ -87,10 +86,7 @@
                     }
                     if (options.maxWidth) {
                         this.maxWidth = options.maxWidth
-                    }
-                    if (options.maxHeight) {
-                        this.maxHeight = options.maxHeight
-                    }
+                    }          
                 }
                 if (fn) {
                     this.fn = fn;
@@ -124,7 +120,6 @@
                         var img = new Image();
                         img.src = this.imgList[i].src;
                         img.style.maxWidth = this.maxWidth + 'px';
-                        img.style.maxHeight = this.maxHeight + 'px';
                         lastOne.appendChild(img);
                         outer.appendChild(lastOne);
                     } else {
@@ -163,7 +158,7 @@
     /*
      * @param dom<Document>   组件插入的容器(默认为body)
      * @param imgList<Array>  图片集合数组，每个元素包括src,width,height
-     * @param options<Object> 组件选项 showNum<NUmber>:显示数目(默认4) showAll<Boolean>:显示全面(默认false)  maxWidth<Number>:图片显示的最大宽度(默认为屏幕宽度)  maxHeight<Number>:图片显示的最大高度(默认为屏幕高度)
+     * @param options<Object> 组件选项 showNum<NUmber>:显示数目(默认4) showAll<Boolean>:显示全面(默认false)  maxWidth<Number>:图片显示的最大宽度(默认为屏幕宽度)  
      * @param fn<Function>  查看更多回调(与showNum、showAll配合使用)
      * */
      var showAll = false;
