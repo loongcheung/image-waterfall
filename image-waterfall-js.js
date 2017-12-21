@@ -163,7 +163,5 @@
      * */
      var showAll = false;
     var waterfall = new imgWaterfall();
-    waterfall.init('', ImgList, {},function() {
-         waterfall.init('', ImgList, {showAll: true});
-    });
+    waterfall.init('', ImgList, {},function() {});
 </script>
