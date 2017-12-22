@@ -33,7 +33,7 @@ export default class ImageWaterfall extends Component {
             if (!this.props.imgList[i + 1]) { //对于奇数的最后一个图片进行单独处理
                 imgItem = (
                     <div style={{fontSize: '0px'}} key={i}>
-                        <img onClick={this.props.openPhotoSwiper.bind(this, this.props.imgList, i)}
+                        <img onClick={this.props.openPhotoSwiper ? this.props.openPhotoSwiper.bind(this, this.props.imgList, i) : ''}
                              src={this.props.imgList[i].src} style={{
                             maxWidth: `${maxWidth}px`
                         }}/>
@@ -48,11 +48,11 @@ export default class ImageWaterfall extends Component {
                     height = width1 * rate1;
                 imgItem = (
                     <div style={{fontSize: '0px'}} key={i}>
-                        <img style={{marginBottom: '1px'}} data-index={i} onClick={this.props.openPhotoSwiper.bind(this, this.props.imgList, i)}
+                        <img style={{marginBottom: '1px'}} data-index={i} onClick={this.props.openPhotoSwiper ? this.props.openPhotoSwiper.bind(this, this.props.imgList, i) : ''}
                              src={this.props.imgList[i].src}
                              width={width1} height={height}/>
                         <img style={{float: 'right'}} data-index={i + 1}
-                             onClick={this.props.openPhotoSwiper.bind(this, this.props.imgList, i + 1)}
+                             onClick={this.props.openPhotoSwiper ? this.props.openPhotoSwiper.bind(this, this.props.imgList, i + 1) : ''}
                              src={this.props.imgList[i + 1].src}
                              width={width2} height={height}/>
                     </div>
